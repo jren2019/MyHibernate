@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--第一部分: 配置数据库信息-->
+        <!--ctrl+alt+shift+s lib add mysql-connector-->
+        <property name="connection.url">
+            jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC
+        </property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <!--第二部分: 可选-->
+        <!-- DB schema will be updated if needed -->
+        <property name="hbm2ddl.auto">update</property>
+        <!--输出sql语句, 并格式化-->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!--各个数据库的方言-->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!--第三部分: 映射文件-->
+        <mapping resource="entity/User.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
